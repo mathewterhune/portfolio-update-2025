@@ -2,8 +2,8 @@ import Projects from "./sections/projects.jsx";
 import Hero from "./sections/hero.jsx";
 import Header from "./sections/Header.jsx";
 import Skills from "./sections/Skills.jsx"; 
-import Education from "./sections/education.jsx";
-import Experience from "./sections/experience.jsx";
+import Education from "./sections/Education.jsx";
+import Experience from "./sections/Experience.jsx";
 import ParticlesComponent from "./components/particles.jsx"; 
 
 
