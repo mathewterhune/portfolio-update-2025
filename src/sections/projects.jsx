@@ -51,7 +51,8 @@ const Projects = () => {
     return (
         <div className="w-full p-10">
           <h1 className="text-4xl text-gray-700 font-bold">Highlighted Projects</h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-5 mx-auto w-max">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-5 w-full max-w-6xl mx-auto px-4">
+
             {projects.map((project, index) => (
               <Card_Projects key={index} project={project} />
             ))}
