@@ -54,7 +54,7 @@ const Header = () => {
           </div>
         </div>
                 <img
-          src="../src/CoverPhoto.png"
+          src="/CoverPhoto.png"
           alt="Profile"
           className="rounded-2xl w-64 h-64 md:w-128 md:h-128"
         />
