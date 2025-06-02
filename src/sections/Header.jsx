@@ -19,7 +19,7 @@ const Header = () => {
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-5">
+          <div className="flex flex-wrap justify-center cursor-pointer md:justify-start gap-4 pt-5">
             <motion.a
               href="mailto:mathewterhune@gmail.com"
               className="px-4 py-2 bg-blue-500 text-white rounded-lg"
@@ -31,7 +31,7 @@ const Header = () => {
             </motion.a>
 
             <motion.button
-              className="px-4 py-2 bg-blue-500 text-white rounded-lg"
+              className="px-4 py-2 bg-blue-500 cursor-pointer text-white rounded-lg"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() =>
@@ -43,7 +43,7 @@ const Header = () => {
             </motion.button>
 
             <motion.button
-              className="px-4 py-2 bg-blue-500 text-white rounded-lg"
+              className="px-4 py-2 bg-blue-500 cursor-pointer text-white rounded-lg"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => window.open("https://github.com/mathewterhune")}
