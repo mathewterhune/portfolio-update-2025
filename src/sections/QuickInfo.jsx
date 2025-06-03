@@ -1,5 +1,5 @@
 
-const Hero = () => {
+const QuickInfo = () => {
     return(
         <div className="w-full p-10">
           <div className="">
@@ -16,4 +16,4 @@ My experience spans academic research, co-operative education, and personal proj
     );
 
 }
-export default Hero;
+export default QuickInfo;

@@ -1,10 +1,11 @@
 import Projects from "./sections/projects.jsx";
-import Hero from "./sections/hero.jsx";
+import QuickInfo from "./sections/QuickInfo.jsx";
 import Header from "./sections/Header.jsx";
 import Skills from "./sections/Skills.jsx"; 
 import Education from "./sections/Education.jsx";
 import Experience from "./sections/Experience.jsx";
 import ParticlesComponent from "./components/particles.jsx"; 
+import HeroSection from "./sections/HeroSection.jsx";
 
 
 
@@ -17,8 +18,9 @@ export default function App() {
       {/* Main Content */}
       <div className="relative z-10 flex justify-center">
         <div className="w-full max-w-6xl mt-10 bg-gray-300 shadow-lg rounded-2xl">
+          <HeroSection darkMode={true} />
           <Header />
-          <Hero />
+          <QuickInfo />
           <Experience />
           <Education />
           <Skills />
