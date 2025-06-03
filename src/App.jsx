@@ -18,7 +18,7 @@ export default function App() {
       {/* Main Content */}
       <div className="relative z-10 flex justify-center">
         <div className="w-full max-w-6xl mt-10 bg-gray-300 shadow-lg rounded-2xl">
-          <HeroSection darkMode={true} />
+          {/* <HeroSection darkMode={true} /> */}
           <Header />
           <QuickInfo />
           <Experience />
