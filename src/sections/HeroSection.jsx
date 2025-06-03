@@ -11,7 +11,7 @@ const HeroSection = ({ darkMode }) => {
   };
 
   return (
-    <section className={`min-h-screen flex items-center justify-center relative overflow-hidden ${
+    <section className={`min-h-screen flex items-center justify-center relative overflow-hidden rounded-2xl ${
       darkMode ? 'bg-gray-900 text-white' : 'bg-gradient-to-br from-blue-50 via-white to-purple-50 text-gray-900'
     }`}>
       {/* Background decoration */}
@@ -77,7 +77,7 @@ const HeroSection = ({ darkMode }) => {
             >
               <motion.button
                 onClick={() => scrollToSection('projects')}
-                className={`px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 ${
+                className={`px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:cursor-pointer ${
                   darkMode 
                     ? 'bg-blue-600 hover:bg-blue-700 text-white' 
                     : 'bg-blue-600 hover:bg-blue-700 text-white'
@@ -88,9 +88,17 @@ const HeroSection = ({ darkMode }) => {
                 View My Work
               </motion.button>
               
+              {/* UPDATED RESUME BUTTON */}
               <motion.button
-                onClick={() => scrollToSection('contact')}
-                className={`px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 border-2 ${
+                onClick={ () => {
+                  const link = document.createElement('a');
+                  link.href = '/Mathew_Terhune_Resume.pdf';
+                  link.download = 'Mathew_Terhune_Resume.pdf';
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
+                className={`px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 border-2 hover:cursor-pointer ${
                   darkMode 
                     ? 'border-gray-600 text-gray-300 hover:bg-gray-800' 
                     : 'border-gray-300 text-gray-700 hover:bg-gray-50'
@@ -111,9 +119,9 @@ const HeroSection = ({ darkMode }) => {
               transition={{ duration: 0.8, delay: 0.8 }}
             >
               {[
-                { icon: Github, href: "#", label: "GitHub" },
-                { icon: Linkedin, href: "#", label: "LinkedIn" },
-                { icon: Mail, href: "#", label: "Email" }
+                { icon: Github, href: "https://github.com/mathewterhune", label: "GitHub" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/mathew-terhune-b07749235/", label: "LinkedIn" },
+                { icon: Mail, href: "mailto:mathewterhune@gmail.com", label: "Email" }
               ].map((social, index) => (
                 <motion.a
                   key={index}
@@ -136,13 +144,14 @@ const HeroSection = ({ darkMode }) => {
           {/* Scroll Indicator */}
           <motion.div
             className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
-            onClick={() => scrollToSection('about')}
+            onClick={() => scrollToSection('header')}
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
             <ChevronDown 
               size={32} 
               className={`${darkMode ? 'text-gray-400' : 'text-gray-500'} hover:text-blue-600 transition-colors`} 
+              
             />
           </motion.div>
         </div>
