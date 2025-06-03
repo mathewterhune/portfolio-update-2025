@@ -3,11 +3,12 @@ import { motion } from 'framer-motion';
 
 const Navigation = () => {
   const [activeSection, setActiveSection] = useState('');
+  const [pastHero, setPastHero] = useState(false); // This keeps track of whether the user has scrolled pas the hero section
 
   const navItems = [
     // { id: 'hero', label: 'Hero' },
-    { id: 'header', label: 'Home' },
-    { id: 'quick-info', label: 'About' },
+    { id: 'hero', label: 'Home' },
+    { id: 'header', label: 'About' },
     { id: 'experience', label: 'Experience' },
     { id: 'education', label: 'Education' },
     { id: 'projects', label: 'Projects' },
@@ -18,6 +19,14 @@ const Navigation = () => {
     const handleScroll = () => {
       const sections = navItems.map(item => document.getElementById(item.id));
       const scrollPosition = window.scrollY + 100; // Offset for better detection
+
+        // Get the header section
+        const headerSection = document.getElementById('header');
+        if (headerSection) {
+            // use the bottom of the header section to determine if we have scrolled past the hero section
+            const headerBottom = headerSection.offsetTop + headerSection.offsetHeight;
+            setPastHero(scrollPosition > headerBottom);
+        }
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
@@ -45,10 +54,10 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200 shadow-sm">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${pastHero ? '' : 'bg-white/10 backdrop-blur-sm border-b border-gray-200 shadow-sm'}`}>
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-center items-center h-16">
-          <div className="flex space-x-1 bg-gray-100 rounded-full p-1">
+          <div className={`flex space-x-1 rounded-full p-1 transition-all duration-300 ${pastHero ? 'bg-white/80 backdrop-blur-sm shadow-lg' : 'bg-gray-100'}`}>
             {navItems.map((item) => (
               <motion.button
                 key={item.id}

@@ -19,7 +19,7 @@ const Header = () => {
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-wrap justify-center cursor-pointer md:justify-start gap-4 pt-5">
+          {/* <div className="flex flex-wrap justify-center cursor-pointer md:justify-start gap-4 pt-5">
             <motion.a
               href="mailto:mathewterhune@gmail.com"
               className="px-4 py-2 bg-blue-500 text-white rounded-lg"
@@ -51,7 +51,7 @@ const Header = () => {
               <FaGithub className="inline-block mr-2" />
               GitHub
             </motion.button>
-          </div>
+          </div> */}
         </div>
                 <img
           src="/CoverPhoto.png"
