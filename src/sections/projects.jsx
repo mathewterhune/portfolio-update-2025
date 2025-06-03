@@ -4,7 +4,27 @@ import Card_Projects from "../components/Card_Projects";
 const Projects = () => {
 
     const projects = [
-        {
+      {
+        title: "Sorting Algorithm Visualization Tool",
+        description: "In progress of developing a web-based visualization tool using React, tailwindcss, and typescript to demonstrate how different sorting algorithms function. This tool will allow users to select among different sorting algorithms and step through them in real-time to visualize thier differences. This project hopes to have the option to clone a blank template version of the tool and allow users to implement the algorithms themselves as an option to understand how they work. \n Early stages of development, if curious please reach out.",
+        date: "Summer 2025 (Ongoing)",
+        course: "",
+        course_link: "",
+        tags: ["React", "TailwindCSS", "TypeScript", "Soprting Algorithms", "Visualization"],
+        github: "",
+        website: "",
+      },
+      {
+        title: "Search Algorithm Visualization Tool",
+        description: "Developeding a web-based visualization tool using React and TailwindCSS to demonstrate search algorithms such as BFS, DFS, ... on a grid-based graph structure. This tool allows users to input thier own start, stop, and wall nodes, and visualize the algorithms execution in real-time. This project aims to have features that will allow users to stop and step through the alogrithm execution. At the moment it has a backend Graph Manager and an algorithm engine that controls activity. This project hopes to have the option to clone a blank template version of the tool and allow users to implement the algorithms themselves as an option to understand how they work.",
+        date: "Summer 2025 (Ongoing)",
+        course: "",
+        course_link: "",
+        tags: ["React", "TailwindCSS", "JavaScript", "Search Algorithms", "Visualization"],
+        github: "github.com/mathewterhune/Search-Algorithm-Visualization",
+        website: "",
+      },
+      {
           title:"Search Algorithm Comparison In Decentralized Peer-to-Peer Networks",
           description: "Designed and implemented a simulation framework in Python and C++ to evaluate decentralized search algorithms Flooding, Normalized Flooding, and Random Walk across various peer-to-peer network topologies (e.g., tree, regular, clustered). The project measured metrics such as query success rate, average hops, and latency, revealing performance trade-offs between aggressive propagation and efficiency in large-scale unstructured networks.",
           date: "Spring 2025",
