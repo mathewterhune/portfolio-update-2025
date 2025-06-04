@@ -10,7 +10,7 @@ const Projects = () => {
         date: "Summer 2025 (Ongoing)",
         course: "",
         course_link: "",
-        tags: ["React", "TailwindCSS", "TypeScript", "Soprting Algorithms", "Visualization"],
+        tags: ["React", "TailwindCSS", "TypeScript", "Sorting Algorithms", "Visualization"],
         github: "",
         website: "",
       },
