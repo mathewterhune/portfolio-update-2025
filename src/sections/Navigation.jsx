@@ -84,7 +84,7 @@ const Navigation = () => {
           <div className="flex justify-between items-center h-16 md:justify-center">
             {/* Logo/Brand - visible on mobile */}
             <div className="md:hidden">
-              <span className="text-xl font-bold text-gray-800">Portfolio</span>
+              <span className="text-xl font-bold text-gray-800">Mathew Terhune's Portfolio</span>
             </div>
 
             {/* Desktop Navigation */}
