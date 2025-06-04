@@ -31,7 +31,7 @@ export default function App() {
 
 
   return (
-    <div className="relative min-h-screen bg-gray-50 overflow-hidden">
+    <div className="relative min-h-screen bg-gray-50 overflow-hidden mt-8">
       {/* Background Particles */}
       <div
         className={`fixed inset-0 transition-all duration-500 ease-in-out ${blurBackground ? "blur-md" : "blur-none"}`}
