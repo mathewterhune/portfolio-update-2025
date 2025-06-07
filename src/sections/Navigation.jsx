@@ -57,7 +57,7 @@ const Navigation = () => {
     handleScroll(); // Set initial active section
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  },);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
