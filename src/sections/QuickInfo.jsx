@@ -9,7 +9,7 @@ const QuickInfo = () => {
               from the University of Victoria.
             </p>
             <p className="pl-5 text-gray-600">
-My experience spans academic research, co-operative education, and personal projects, all contributing to a well-rounded and practical skill set. I’ve intentionally pursued a broad academic path that allowed me to explore a wide range of computer science topics from algorithms and data structures to machine learning, artificial intelligence, low-level systems, and functional programming. I’m driven by a constant desire to learn and grow as a developer, and I actively seek out challenging, complex problems to push my skills further.
+My background blends academic research, co-operative education, and hands-on personal projects, all of which have shaped a practical and well-rounded technical foundation. I have purposefully followed a broad academic path, exploring diverse areas of computer science including algorithms, data structures, machine learning, artificial intelligence, low-level systems, and functional programming. Fueled by a strong drive to learn and improve, I actively seek out complex, challenging problems that push me to grow as a developer.
             </p>
           </div>
         </div>
