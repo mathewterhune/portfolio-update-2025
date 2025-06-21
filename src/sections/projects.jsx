@@ -21,7 +21,7 @@ const Projects = () => {
         course: "",
         course_link: "",
         tags: ["React", "TailwindCSS", "JavaScript", "Search Algorithms", "Visualization"],
-        github: "github.com/mathewterhune/Search-Algorithm-Visualization",
+        github: "https://github.com/mathewterhune/Search-Algorithm-Visualization",
         website: "",
       },
       {
