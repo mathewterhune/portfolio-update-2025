@@ -44,6 +44,16 @@ const Education = () => {
           code: "CSC 466",
           name: "Overlay and Peer-to-Peer Networking",
           link: "https://www.uvic.ca/calendar/undergrad/#/courses/r1l21daXE?bc=true&bcCurrent=CSC466%20-%20Overlay%20and%20Peer-to-Peer%20Networking&bcGroup=Computer%20Science%20(CSC)&bcItemType=courses"
+        },
+        {
+          code: "SENG 275",
+          name: "Software Testing",
+          link: "https://www.uvic.ca/calendar/undergrad/index.php#/courses/H11yxFamE?bc=true&bcCurrent=SENG275%20-%20Software%20Testing&bcGroup=Software%20Engineering%20(SENG)&bcItemType=courses"
+        },
+        {
+          code: "CSC 485B",
+          name: "GPU Computation (Topics course, link not available)",
+          link: ""
         }
       ]
     }
