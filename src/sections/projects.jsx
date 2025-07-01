@@ -4,7 +4,7 @@ import { Code, Calendar, ExternalLink, Github, Globe, ChevronDown, BookOpen, Tag
 
 const Projects = () => {
   const [expandedSections, setExpandedSections] = useState({});
-  
+  // hehe
   const projects = [
     {
       title: "Sorting Algorithm Visualization Tool",
