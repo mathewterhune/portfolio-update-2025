@@ -4,8 +4,16 @@ import { Code, Calendar, ExternalLink, Github, Globe, ChevronDown, BookOpen, Tag
 
 const Projects = () => {
   const [expandedSections, setExpandedSections] = useState({});
-  // hehe // hoho
+  // hehe // hoho // hahaasdfasdfasdfasdfasdf
+
+
+  
   const projects = [
+
+
+
+
+
     {
       title: "Sorting Algorithm Visualization Tool",
       description: "In progress of developing a web-based visualization tool using React, tailwindcss, and typescript to demonstrate how different sorting algorithms function. This tool will allow users to select among different sorting algorithms and step through them in real-time to visualize thier differences. This project hopes to have the option to clone a blank template version of the tool and allow users to implement the algorithms themselves as an option to understand how they work.",
