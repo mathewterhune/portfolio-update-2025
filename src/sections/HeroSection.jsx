@@ -142,8 +142,8 @@ const HeroSection = ({ darkMode }) => {
               <motion.button
                 onClick={() => {
                   const link = document.createElement('a');
-                  link.href = '/Mathew_Terhune_Resume.pdf';
-                  link.download = 'Mathew_Terhune_Resume.pdf';
+                  link.href = '/2025_Mathew_Terhune_Resume.pdf';
+                  link.download = '2025_Mathew_Terhune_Resume.pdf';
                   document.body.appendChild(link);
                   link.click();
                   document.body.removeChild(link);
