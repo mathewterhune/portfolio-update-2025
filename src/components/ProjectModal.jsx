@@ -2,6 +2,8 @@
 import React, { useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, Calendar, Github, Globe, Tag, BookOpen, ExternalLink } from "lucide-react";
+import { rawProjects } from "../projectsData";
+import ProjectSlider from "./ProjectSlider";
 
 /**
  * Project shape 
@@ -76,9 +78,11 @@ export default function ProjectModal({ open, onClose, project }) {
      github,
      website,
      longDescription,
+     shortDescription,
      additionalInfo,          // fallback used below
      description,             // fallback used below
-    images = []
+    images = [],
+    sliderImages = []
   } = (project ?? {});   
 
   const fullText = longDescription || additionalInfo || description || "";
@@ -87,7 +91,7 @@ export default function ProjectModal({ open, onClose, project }) {
     <AnimatePresence>
       {open && (
         <motion.div
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+          className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
           variants={backdrop}
           initial="hidden"
           animate="visible"
@@ -102,13 +106,13 @@ export default function ProjectModal({ open, onClose, project }) {
           {/* Backdrop */}
           <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
 
-          {/* Modal card */}
+          {/* Modal card - now with flex column and max height */}
           <motion.div
             variants={modal}
-            className="relative z-[101] w-full max-w-3xl bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden"
+            className="relative z-[10000] w-full max-w-3xl max-h-[90vh] bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden flex flex-col"
           >
-            {/* Header */}
-            <div className="flex items-start gap-4 p-6 bg-gradient-to-r from-purple-50 to-blue-50 border-b border-gray-200">
+            {/* Header - fixed at top */}
+            <div className="flex-shrink-0 flex items-start gap-4 p-6 bg-gradient-to-r from-purple-50 to-blue-50 border-b border-gray-200">
               <div className="flex-1">
                 <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
                 <div className="mt-2 flex flex-wrap gap-3 text-sm text-gray-700">
@@ -155,88 +159,78 @@ export default function ProjectModal({ open, onClose, project }) {
               </button>
             </div>
 
-            {/* Body */}
-            <div className="p-6 space-y-6">
-              {/* Links */}
-              {(github || website) && (
-                <div className="flex flex-wrap gap-3">
-                  {github && (
-                    <a
-                      href={github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm px-3 py-2 rounded-lg border border-gray-200 hover:border-gray-300 hover:bg-gray-50"
-                    >
-                      <Github className="w-4 h-4" />
-                      View on GitHub
-                    </a>
-                  )}
-                  {website && (
-                    <a
-                      href={website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm px-3 py-2 rounded-lg border border-gray-200 hover:border-gray-300 hover:bg-gray-50"
-                    >
-                      <Globe className="w-4 h-4" />
-                      Live demo
-                    </a>
-                  )}
-                </div>
-              )}
-
-              {/* Tags */}
-              {!!tags.length && (
-                <div>
-                  <div className="flex items-center gap-2 mb-2 text-gray-800 font-semibold">
-                    <Tag className="w-5 h-5" />
-                    Technologies
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {tags.map((t, i) => (
-                      <span
-                        key={`${t}-${i}`}
-                        className="px-3 py-1 rounded-full text-xs bg-purple-100 text-purple-800 border border-purple-200"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Image gallery (optional) */}
-              {!!images.length && (
-                <div className="space-y-3">
-                  <div className="text-sm font-semibold text-gray-800">Gallery</div>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                    {images.map((src, i) => (
-                      <motion.a
-                        key={i}
-                        href={src}
+            {/* Scrollable body content */}
+            <div className="flex-1 overflow-y-auto">
+              <div className="p-6 space-y-6">
+                {/* Links */}
+                {(github || website) && (
+                  <div className="flex flex-wrap gap-3">
+                    {github && (
+                      <a
+                        href={github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block overflow-hidden rounded-xl border border-gray-200 bg-gray-50"
-                        whileHover={{ scale: 1.01 }}
+                        className="inline-flex items-center gap-2 text-sm px-3 py-2 rounded-lg border border-gray-200 hover:border-gray-300 hover:bg-gray-50"
                       >
-                        <img
-                          src={src}
-                          alt={`${title} – image ${i + 1}`}
-                          className="w-full h-28 object-cover"
-                          loading="lazy"
-                        />
-                      </motion.a>
-                    ))}
+                        <Github className="w-4 h-4" />
+                        View on GitHub
+                      </a>
+                    )}
+                    {website && (
+                      <a
+                        href={website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm px-3 py-2 rounded-lg border border-gray-200 hover:border-gray-300 hover:bg-gray-50"
+                      >
+                        <Globe className="w-4 h-4" />
+                        Live demo
+                      </a>
+                    )}
                   </div>
-                </div>
-              )}
+                )}
 
-              {/* Long text */}
-              {fullText && (
-                <div className="prose prose-sm max-w-none text-gray-700">
-                  <p className="whitespace-pre-wrap">{fullText}</p>
-                </div>
-              )}
+                {/* Tags */}
+                {!!tags.length && (
+                  <div>
+                    <div className="flex items-center gap-2 mb-2 text-gray-800 font-semibold">
+                      <Tag className="w-5 h-5" />
+                      Technologies
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {tags.map((t, i) => (
+                        <span
+                          key={`${t}-${i}`}
+                          className="px-3 py-1 rounded-full text-xs bg-purple-100 text-purple-800 border border-purple-200"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Media slider (no heading above) */}
+                {sliderImages?.length > 0 && (
+                  <ProjectSlider
+                    title={title}
+                    images={sliderImages.map((src, i) => ({
+                      id: i + 1,
+                      src,
+                      alt: `${title}-${i + 1}`,
+                    }))}
+                    className="!mb-4"
+                    hideHeader                         // NEW: hide the header inside the modal
+                  />
+                )}
+
+                {/* Long text under the slider */}
+                {longDescription && (
+                  <div className="prose prose-sm max-w-none text-gray-700">
+                    <p className="whitespace-pre-wrap">{longDescription}</p>
+                  </div>
+                )}
+              </div>
             </div>
           </motion.div>
         </motion.div>

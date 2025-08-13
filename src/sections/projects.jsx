@@ -1,8 +1,7 @@
-
 import React, { useMemo, useState } from "react";
 import { rawProjects } from "../projectsData";
 import { motion } from "framer-motion";
-import { Code, Calendar, BookOpen } from "lucide-react";
+import { Code, Calendar, BookOpen, Image as ImageIcon, Github, Globe } from "lucide-react";
 import ProjectModal, { ReadMoreButton } from "../components/ProjectModal";
 
 const statusStyle = (status) => {
@@ -11,6 +10,8 @@ const statusStyle = (status) => {
       return "bg-green-100 text-green-800 border-green-200";
     case "In Progress":
       return "bg-yellow-100 text-yellow-800 border-yellow-200";
+    case "Under Construction":
+      return "bg-orange-100 text-orange-800 border-orange-200";
     default:
       return "bg-gray-100 text-gray-800 border-gray-200";
   }
@@ -20,9 +21,7 @@ export default function Projects() {
   const [open, setOpen] = useState(false);
   const [activeProject, setActiveProject] = useState(null);
 
-  
   const projects = React.useMemo(() => rawProjects, []);
-
 
   const openModal = (project) => {
     setActiveProject(project);
@@ -43,10 +42,10 @@ export default function Projects() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        Highlighted Projects
+        Highlighted Projects (images may load slowly)
       </motion.h1>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-1 gap-6">
         {projects.map((project, i) => (
           <motion.article
             key={project.title + i}
@@ -76,6 +75,36 @@ export default function Projects() {
                     </span>
                   )}
                 </div>
+                
+                {/* Links in header */}
+                {(project.github || project.website) && (
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-sm px-2 py-1 rounded-md bg-white/60 hover:bg-white border border-gray-400 hover:border-gray-700 transition-colors text-gray-700 hover:text-gray-900"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Github className="w-3 h-3" />
+                        View on GitHub
+                      </a>
+                    )}
+                    {project.website && (
+                      <a
+                        href={project.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-sm px-2 py-1 rounded-md bg-white/60 hover:bg-white border border-white/40 hover:border-gray-400 transition-colors text-gray-700 hover:text-gray-900"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Globe className="w-3 h-3" />
+                        Live Demo
+                      </a>
+                    )}
+                  </div>
+                )}
               </div>
               {project.status && (
                 <span
@@ -88,24 +117,53 @@ export default function Projects() {
               )}
             </div>
 
-            {/* Brief content + Read more */}
+            {/* Main content with image */}
             <div className="p-6">
-              <p className="text-gray-600 line-clamp-3 mb-4">
-                {project.shortDescription}
-              </p>
+              <div className="flex gap-6">
+                {/* Left content */}
+                <div className="flex-1">
+                  <p className="text-gray-600 line-clamp-3 mb-4">
+                    {project.shortDescription}
+                  </p>
 
-              <div className="flex flex-wrap gap-2 mb-4">
-                {(project.tags || []).slice(0, 6).map((tag, idx) => (
-                  <span
-                    key={tag + idx}
-                    className="px-3 py-1 rounded-full text-xs bg-purple-100 text-purple-800 border border-purple-200"
-                  >
-                    {tag}
-                  </span>
-                ))}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {(project.tags || []).slice(0, 6).map((tag, idx) => (
+                      <span
+                        key={tag + idx}
+                        className="px-3 py-1 rounded-full text-xs bg-purple-100 text-purple-800 border border-purple-200"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+
+
+                  <ReadMoreButton onClick={() => openModal(project)} />
+                </div>
+
+                {/* Right side - Cover image */}
+                <div className="flex-shrink-0 w-48 h-32">
+                  {project.coverImage ? (
+                    <motion.div
+                      className="w-full h-full rounded-lg overflow-hidden bg-gray-100 border border-gray-200"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <img
+                        src={project.coverImage}
+                        alt={`${project.title} preview`}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </motion.div>
+                  ) : (
+                    <div className="w-full h-full rounded-lg bg-gradient-to-br from-purple-100 to-pink-100 border border-gray-200 flex items-center justify-center">
+                      <ImageIcon className="w-8 h-8 text-gray-400" />
+                    </div>
+                  )}
+                </div>
               </div>
-
-              <ReadMoreButton onClick={() => openModal(project)} />
             </div>
           </motion.article>
         ))}
