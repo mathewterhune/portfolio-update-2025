@@ -96,11 +96,11 @@ export default function Projects() {
                         href={project.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-sm px-2 py-1 rounded-md bg-white/60 hover:bg-white border border-white/40 hover:border-gray-400 transition-colors text-gray-700 hover:text-gray-900"
+                        className="inline-flex items-center gap-1 text-sm px-2 py-1 rounded-md bg-white/60 hover:bg-white border border-gray-400 hover:border-gray-700 transition-colors text-gray-700 hover:text-gray-900"
                         onClick={(e) => e.stopPropagation()}
                       >
                         <Globe className="w-3 h-3" />
-                        Live Demo
+                        Website
                       </a>
                     )}
                   </div>

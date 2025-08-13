@@ -170,7 +170,7 @@ export default function ProjectModal({ open, onClose, project }) {
                         href={github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm px-3 py-2 rounded-lg border border-gray-200 hover:border-gray-300 hover:bg-gray-50"
+                        className="inline-flex items-center gap-1 text-sm px-2 py-1 rounded-md bg-white/60 hover:bg-white border border-gray-400 hover:border-gray-700 transition-colors text-gray-700 hover:text-gray-900"
                       >
                         <Github className="w-4 h-4" />
                         View on GitHub
@@ -181,10 +181,10 @@ export default function ProjectModal({ open, onClose, project }) {
                         href={website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm px-3 py-2 rounded-lg border border-gray-200 hover:border-gray-300 hover:bg-gray-50"
+                        className="inline-flex items-center gap-1 text-sm px-2 py-1 rounded-md bg-white/60 hover:bg-white border border-gray-400 hover:border-gray-700 transition-colors text-gray-700 hover:text-gray-900"
                       >
                         <Globe className="w-4 h-4" />
-                        Live demo
+                        Website
                       </a>
                     )}
                   </div>
