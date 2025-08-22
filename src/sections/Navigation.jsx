@@ -7,6 +7,8 @@ const Navigation = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+///
+
   const navItems = [
     // { id: 'hero', label: 'Hero' },
     { id: 'hero', label: 'Home' },
