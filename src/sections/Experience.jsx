@@ -7,6 +7,34 @@ const Experience = () => {
   
   const experiences = [
     {
+      company: "VersaFile",
+      company_link: "https://versafile.com/",
+      title: "Jr. Software Developer",
+      location: "Remote",
+      timeframe: "October 2025 - Present",
+      length: "Ongoing",
+      type: "Full Time",
+      description: "More information to come!",
+      bullets: [
+        "More information to come!",
+      ]
+    },
+    {
+      company: "JSTAR-Excavations",
+      company_link: "https://www.jstarexcavations.com/",
+      title: "Full Stack Software Developer",
+      location: "Remote",
+      timeframe: "May 2025 - September 2025",
+      length: "4 Months",
+      type: "Freelance",
+      description: "",
+      bullets: [
+        "Architected a responsive web interface using React, TypeScript, TailwindCSS, delivering a user-centric and performant experience",
+        "Deployed, monitored, and maintained the web application on Vercel, ensuring high availability and continuous delivery",
+        "Wrote clean, maintainable, and well-documented code following industry best practices.",
+      ]
+    },
+    {
       company: "Columbia Basin Trust",
       company_link: "https://ourtrust.org/",
       title: "Information Systems, CO-OP",
